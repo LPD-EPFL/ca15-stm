@@ -6,6 +6,8 @@
 #include <stdlib.h>
 
 #include "sstm.h"
+#include "random.h"
+__thread unsigned long* seeds; 
 
 /*
  * Useful macros to work with transactions. Note that, to use nested
@@ -193,6 +195,7 @@ void*
 test(void *data) 
 {
   srand(time(NULL));
+  seed_rand();
 
   int rand_max;
   thread_data_t *d = (thread_data_t *) data;
@@ -208,15 +211,15 @@ test(void *data)
   /* BARRIER; */
   while(work)
     {
-      int random = (int) rand();
-      uint32_t key = random % rand_max;
+      int op = (int) fast_rand();
+      uint32_t key = fast_rand() % rand_max;
 
-      if (random < lim_search)
+      if (op < lim_search)
 	{
 	  d->nb_searchs_succ += ll_search(list_local, key);
 	  d->nb_searchs++;
 	}
-      else if (random < lim_insert)
+      else if (op < lim_insert)
 	{
 	  d->nb_inserts_succ += ll_insert(list_local, key);
 	  d->nb_inserts++;

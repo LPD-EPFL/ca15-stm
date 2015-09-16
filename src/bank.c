@@ -6,6 +6,8 @@
 #include <stdlib.h>
 
 #include "sstm.h"
+#include "random.h"
+__thread unsigned long* seeds; 
 
 /*
  * Useful macros to work with transactions. Note that, to use nested
@@ -166,6 +168,9 @@ void*
 test(void *data) 
 {
   int rand_max;
+
+  seed_rand();
+
   uint8_t is_read_core = 0;
   thread_data_t *d = (thread_data_t *) data;
   bank_t* bank_local = bank;
@@ -181,7 +186,7 @@ test(void *data)
 
   while(work)
     {
-      uint8_t nb = rand() & 127;
+      uint8_t nb = fast_rand() & 127;
       if (is_read_core || nb < d->read_all)
 	{
 	  /* Read all */
@@ -190,10 +195,10 @@ test(void *data)
 	}
       else
 	{
-	  /* Choose random accounts */
+	  /* Choose fast_random accounts */
 
-	  uint32_t src = rand() % rand_max;
-	  uint32_t dst = rand() % rand_max;
+	  uint32_t src = fast_rand() % rand_max;
+	  uint32_t dst = fast_rand() % rand_max;
 	  if (dst == src)
 	    {
 	      dst = ((src + 1) % rand_max);
