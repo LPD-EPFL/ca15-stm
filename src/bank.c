@@ -86,7 +86,6 @@ check_accs(account_t* acc1, account_t* acc2)
   TX_START();
   i = TX_LOAD(&acc1->balance);
   j = TX_LOAD(&acc2->balance);
-
   TX_COMMIT();
 
   if (i == j<<20)
@@ -230,14 +229,11 @@ main(int argc, char **argv)
       {"help", no_argument, NULL, 'h'},
       {"num-threads", required_argument, NULL, 'n'},
       {"accounts", required_argument, NULL, 'a'},
-      {"contention-manager", required_argument, NULL, 'c'},
       {"duration", required_argument, NULL, 'd'},
       {"delay", required_argument, NULL, 'D'},
       {"read-all-rate", required_argument, NULL, 'r'},
       {"check", required_argument, NULL, 'c'},
       {"read-threads", required_argument, NULL, 'R'},
-      {"write-all-rate", required_argument, NULL, 'w'},
-      {"write-threads", required_argument, NULL, 'W'},
       {"verbose", no_argument, NULL, 'v'},
       {NULL, 0, NULL, 0}
     };
@@ -265,7 +261,7 @@ main(int argc, char **argv)
   while (1)
     {
       i = 0;
-      c = getopt_long(argc, argv, "hn:a:d:D:r:c:R:w:W:jv", long_options, &i);
+      c = getopt_long(argc, argv, "hn:a:d:r:c:R:v", long_options, &i);
 
       if (c == -1)
 	break;
@@ -299,10 +295,6 @@ main(int argc, char **argv)
 		 "        Percentage of read-all transactions (default=" XSTR(DEFAULT_READ_ALL) ")\n"
 		 "  -R, --read-threads <int>\n"
 		 "        Number of threads issuing only read-all transactions (default=" XSTR(DEFAULT_READ_THREADS) ")\n"
-		 "  -w, --write-all-rate <int>\n"
-		 "        Percentage of write-all transactions (default=" XSTR(DEFAULT_WRITE_ALL) ")\n"
-		 "  -W, --write-threads <int>\n"
-		 "        Number of threads issuing only write-all transactions (default=" XSTR(DEFAULT_WRITE_THREADS) ")\n"
 		 );
 	  exit(0);
 	case 'a':
@@ -325,14 +317,6 @@ main(int argc, char **argv)
 	  break;
 	case 'R':
 	  read_cores = atoi(optarg);
-	  break;
-	case 'w':
-	  write_all = atoi(optarg);
-	  printf("*** warning: write all has been disabled");
-	  break;
-	case 'W':
-	  write_cores = atoi(optarg);
-	  printf("*** warning: write all cores have been disabled");
 	  break;
 	case 'v':
 	  test_verbose = 1;
@@ -362,6 +346,7 @@ main(int argc, char **argv)
       printf("Duration       : %ds\n", duration);
       printf("Check acc rate : %d\n", check - write_all);
       printf("Transfer rate  : %d\n", 100 - check);
+      printf("# Read cores   : %d\n", read_cores);
     }
   /* normalize percentages to 128 */
 
