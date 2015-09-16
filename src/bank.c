@@ -459,6 +459,11 @@ main(int argc, char **argv)
 
   tot = total(bank, 0);
   printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\tBank total  (after): %u\n", tot);
+  if (tot != 0)
+    {
+      printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\tBank total must always be 0!\n");
+    }
+  assert(tot == 0);
 
   TM_STATS(duration);
 
