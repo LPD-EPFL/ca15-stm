@@ -412,12 +412,16 @@ main(int argc, char **argv)
   TM_THREAD_STOP();
   TM_STOP();
 
-  size_t search_suc = 0, insert_suc = 0, delete_suc = 0;
+  size_t search_suc = 0, insert_suc = 0, delete_suc = 0,
+    search_all = 0, insert_all = 0, delete_all = 0;
   for(t = 0; t < num_threads; t++)
     {
       search_suc += data[t].nb_searchs_succ;
       delete_suc += data[t].nb_deletes_succ;
       insert_suc += data[t].nb_inserts_succ;
+      search_all += data[t].nb_searchs;
+      delete_all += data[t].nb_deletes;
+      insert_all += data[t].nb_inserts;
       if (test_verbose)
 	{
 	  double insert_suc_rate = 100 * data[t].nb_inserts_succ / (double) data[t].nb_inserts;
@@ -435,10 +439,7 @@ main(int argc, char **argv)
     }
 
 
-
   int32_t correct_size = size + insert_suc - delete_suc;
-
-
   lsize = ll_size(list);
   printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~List size (after)  : %zu\n", lsize);
   printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~List size (correct): %d\n", correct_size);
@@ -447,6 +448,20 @@ main(int argc, char **argv)
       printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~List size is wrong\n");
     }
   assert(correct_size == lsize);
+
+  double insert_suc_rate = 100 * insert_suc / (double) insert_all;
+  double delete_suc_rate = 100 * delete_suc / (double) delete_all;
+  double search_suc_rate = 100 * search_suc / (double) search_all;
+
+  printf("-- Total:\n");
+  printf("  #inserts   : %-10zu ( %-3.2f%% succ)\n"
+	 "  #deletes   : %-10zu ( %-3.2f%% succ)\n"
+	 "  #searches  : %-10zu ( %-3.2f%% succ)\n",
+	 insert_all, insert_suc_rate,
+	 delete_all, delete_suc_rate,
+	 search_all, search_suc_rate);
+	 
+
 
   TM_STATS(duration);
 
