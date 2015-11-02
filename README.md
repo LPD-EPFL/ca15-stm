@@ -43,7 +43,7 @@ You can run the two benchmarks with `./bank` and `./ll`. Both executables suppor
 
 You can use the `./scripts/benchmark.sh` from the base folder to execute the workloads that we will evaluate your solutions on.
 
-More details
+More Details
 ------------
 
 Please refer to `ca15-project_stm.pdf` for further details.
