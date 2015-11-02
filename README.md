@@ -42,3 +42,8 @@ Executing
 You can run the two benchmarks with `./bank` and `./ll`. Both executables support the `-h` flag that prints the parameters they support.
 
 You can use the `./scripts/benchmark.sh` from the base folder to execute the workloads that we will evaluate your solutions on.
+
+More details
+------------
+
+Please refer to `ca15-project_stm.pdf` for further details.
