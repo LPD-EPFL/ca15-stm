@@ -1,9 +1,10 @@
+*.o
 *~
 /.nfs0000000006d8026d0000013b
 /.nfs0000000006d802710000007c
+/README.html
 /bank
 /cscope.files
 /cscope.out
 /libsstm.a
 /ll
-*.o

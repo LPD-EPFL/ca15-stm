@@ -1,7 +1,7 @@
 ifeq (${DEBUG},1)
 CFLAGS = -O0 -ggdb
 else
-CFLAGS = -O3
+CFLAGS = -O2
 endif
 
 INCL = ./include

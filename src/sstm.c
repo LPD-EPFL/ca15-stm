@@ -21,19 +21,6 @@ sstm_stop()
 {
 }
 
-/* prints the TM system stats
-****** DO NOT TOUCH *********
-*/
-void
-sstm_print_stats(double dur_s)
-{
-  printf("# Commits: %-10zu - %.0f /s\n",
-	 sstm_meta_global.n_commits,
-	 sstm_meta_global.n_commits / dur_s);
-  printf("# Aborts : %-10zu - %.0f /s\n",
-	 sstm_meta_global.n_aborts,
-	 sstm_meta_global.n_aborts / dur_s);
-}
 
 /* initializes thread local data
    (e.g., allocate a thread local counter)
@@ -45,7 +32,8 @@ sstm_thread_start()
 
 /* terminates thread local data
    (e.g., deallocate a thread local counter)
-****** DO NOT CHANGE THE EXISTING CODE*********   
+****** DO NOT CHANGE THE EXISTING CODE*********
+****** Feel free to add more code *************
  */
 void
 sstm_thread_stop()
@@ -56,6 +44,8 @@ sstm_thread_stop()
 
 
 /* transactionally reads the value of addr
+ * On a more complex than GL-STM algorithm,
+ * you need to do more work than simply reading the value.
 */
 inline uintptr_t
 sstm_tx_load(volatile uintptr_t* addr)
@@ -64,6 +54,8 @@ sstm_tx_load(volatile uintptr_t* addr)
 }
 
 /* transactionally writes val in addr
+ * On a more complex than GL-STM algorithm,
+ * you need to do more work than simply reading the value.
 */
 inline void
 sstm_tx_store(volatile uintptr_t* addr, uintptr_t val)
@@ -91,4 +83,19 @@ sstm_tx_commit()
   UNLOCK(&sstm_meta_global.glock);	       
   sstm_alloc_on_commit();
   sstm_meta.n_commits++;		
+}
+
+
+/* prints the TM system stats
+****** DO NOT TOUCH *********
+*/
+void
+sstm_print_stats(double dur_s)
+{
+  printf("# Commits: %-10zu - %.0f /s\n",
+	 sstm_meta_global.n_commits,
+	 sstm_meta_global.n_commits / dur_s);
+  printf("# Aborts : %-10zu - %.0f /s\n",
+	 sstm_meta_global.n_aborts,
+	 sstm_meta_global.n_aborts / dur_s);
 }
