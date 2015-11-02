@@ -20,6 +20,11 @@ After reading the papers that we provide in `readers` sub-folder, you must read 
 * `sstm.c`: This file include the implementations of the STM functions. Look in the code for comments on the purpose of each function. 
 * `sstm_alloc.c`: This file include the implementations of the STM functions for memory allocation. Look in the code for comments on the purpose of each function. 
 
+Developing
+----------
+
+You can freely change the code in the files. GL-STM is a separate git brach that you can always access. Details about branches in git can be found: <https://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging>
+
 Compiling
 ---------
 
@@ -29,7 +34,7 @@ You can compile the project with `make` in the base folder. As a result, this in
 2. `bank` executable. A simple STM benchmark that resembles a bank;
 3. `ll` executable. A simple STM linked list implementation.
 
-You can use the `./scripts/create_glstm.sh` from the base folder to create the GL-STM versions of bank and ll, as well as your implementations. The GL-STM version exeutables are named `bank_glstm` and `ll_glstm`.
+You can use the `./scripts/create_glstm.sh` from the base folder to create the GL-STM versions of bank and ll, as well as your implementations. The GL-STM version executables are named `bank_glstm` and `ll_glstm`.
 
 Executing
 ---------
