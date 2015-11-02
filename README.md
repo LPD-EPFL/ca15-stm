@@ -47,7 +47,7 @@ Executing
 
 You can run the two benchmarks with `./bank` and `./ll`. Both executables support the `-h` flag that prints the parameters they support.
 
-You can use the `./scripts/benchmark.sh` from the base folder to execute the workloads that we will evaluate your solutions on.
+You can use the `./scripts/benchmark.sh` from the base folder to execute the workloads that we will evaluate your solutions on. We will evaluate your solutions on a 2-socket 20-core Intel Xeon server.
 
 More Details
 ------------
