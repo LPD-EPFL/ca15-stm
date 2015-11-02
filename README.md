@@ -29,7 +29,11 @@ You can compile the project with `make` in the base folder. As a result, this in
 2. `bank` executable. A simple STM benchmark that resembles a bank;
 3. `ll` executable. A simple STM linked list implementation.
 
+You can use the `./scripts/create_glstm.sh` from the base folder to create the GL-STM versions of bank and ll, as well as your implementations. The GL-STM version exeutables are named `bank_glstm` and `ll_glstm`.
+
 Executing
 ---------
 
 You can run the two benchmarks with `./bank` and `./ll`. Both executables support the `-h` flag that prints the parameters they support.
+
+You can use the `./scripts/benchmark.sh` from the base folder to execute the workloads that we will evaluate your solutions on.
