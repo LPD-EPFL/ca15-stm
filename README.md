@@ -29,7 +29,7 @@ After reading the papers that we provide in `readers` sub-folder, you must read 
 Developing
 ----------
 
-You can freely change the code in the files. GL-STM is a separate git brach that you can always access. Details about branches in git can be found: <https://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging>
+You can freely change the code in the files. GL-STM is a separate git brach (called `glstm`) that you can always access. Details about branches in git can be found: <https://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging>
 
 Compiling
 ---------
