@@ -11,6 +11,12 @@ More Optimistic STM Algorithms
 
 Your task is to implement a more optimistic STM algorithm. GL-STM does not support any concurrency, even for read-only transactions. More scalable algorithms, such as TL2, NORec, and tinySTM, do allow full concurrency of read-only transactions.
 
+Requirements
+------------
+
+You need a Linux machine with `gcc` compiler and `make` tool installed.
+
+
 Where to Start
 --------------
 
