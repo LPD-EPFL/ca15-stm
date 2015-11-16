@@ -11,6 +11,12 @@ More Optimistic STM Algorithms
 
 Your task is to implement a more optimistic STM algorithm. GL-STM does not support any concurrency, even for read-only transactions. More scalable algorithms, such as TL2, NORec, and tinySTM, do allow full concurrency of read-only transactions.
 
+Requirements
+------------
+
+You need a Linux machine with `gcc` compiler and `make` tool installed.
+
+
 Where to Start
 --------------
 
@@ -23,7 +29,7 @@ After reading the papers that we provide in `readers` sub-folder, you must read 
 Developing
 ----------
 
-You can freely change the code in the files. GL-STM is a separate git brach that you can always access. Details about branches in git can be found: <https://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging>
+You can freely change the code in the files. GL-STM is a separate git brach (called `glstm`) that you can always access. Details about branches in git can be found: <https://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging>
 
 Compiling
 ---------
@@ -41,7 +47,7 @@ Executing
 
 You can run the two benchmarks with `./bank` and `./ll`. Both executables support the `-h` flag that prints the parameters they support.
 
-You can use the `./scripts/benchmark.sh` from the base folder to execute the workloads that we will evaluate your solutions on.
+You can use the `./scripts/benchmark.sh` from the base folder to execute the workloads that we will evaluate your solutions on. We will evaluate your solutions on a 2-socket 20-core Intel Xeon server.
 
 More Details
 ------------
