@@ -412,9 +412,6 @@ main(int argc, char **argv)
 	}
     }
 
-  TM_THREAD_STOP();
-  TM_STOP();
-
   size_t search_suc = 0, insert_suc = 0, delete_suc = 0,
     search_all = 0, insert_all = 0, delete_all = 0;
   for(t = 0; t < num_threads; t++)
@@ -467,8 +464,8 @@ main(int argc, char **argv)
 
 
   TM_STATS(duration);
+  TM_THREAD_STOP();
+  TM_STOP();
 
-
-  /* Delete bank and accounts */
   free(list);
 }
