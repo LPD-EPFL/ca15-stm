@@ -108,7 +108,7 @@ ll_delete(ll_t* list, size_t key)
     }
   else
     {
-      node_t* nxt = TX_LOAD(&cur->next);
+      node_t* nxt = (node_t*) TX_LOAD(&cur->next);
       if (pred != NULL)
 	{
 	  TX_STORE(&pred->next, nxt);
