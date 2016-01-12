@@ -286,7 +286,7 @@ main(int argc, char **argv)
 		 "  -a, --accounts <int>\n"
 		 "        Number of accounts in the bank (default=" XSTR(DEFAULT_NB_ACCOUNTS) ")\n"
 		 "  -d, --duration <double>\n"
-		 "        Test duration in seconds (0=infinite, default=" XSTR(DEFAULT_DURATION) ")\n"
+		 "        Test duration in seconds (default=" XSTR(DEFAULT_DURATION) ")\n"
 		 "  -d, --delay <int>\n"
 		 "        Delay ns after succesfull request. Used to understress the system, default=" XSTR(DEFAULT_DELAY) ")\n"
 		 "  -c, --check <int>\n"

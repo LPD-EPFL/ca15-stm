@@ -294,7 +294,7 @@ main(int argc, char **argv)
 		 "  -i, --initial <int>\n"
 		 "        Initial list lise (default=" XSTR(DEFAULT_SIZE) ")\n"
 		 "  -d, --duration <double>\n"
-		 "        Test duration in seconds (0=infinite, default=" XSTR(DEFAULT_DURATION) ")\n"
+		 "        Test duration in seconds (default=" XSTR(DEFAULT_DURATION) ")\n"
 		 "  -u, --update <int>\n"
 		 "        Percentage of update transactions (default=" XSTR(DEFAULT_PERC_UPDATES) ")\n"
 		 );
