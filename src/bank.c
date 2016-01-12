@@ -283,6 +283,8 @@ main(int argc, char **argv)
 		 "Options:\n"
 		 "  -h, --help\n"
 		 "        Print this message\n"
+		 "  -n, --num-threads <int>\n"
+		 "        Number of threads (default=" XSTR(DEFAULT_NB_THREADS) ")\n"
 		 "  -a, --accounts <int>\n"
 		 "        Number of accounts in the bank (default=" XSTR(DEFAULT_NB_ACCOUNTS) ")\n"
 		 "  -d, --duration <double>\n"

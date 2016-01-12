@@ -291,6 +291,8 @@ main(int argc, char **argv)
 		 "Options:\n"
 		 "  -h, --help\n"
 		 "        Print this message\n"
+		 "  -n, --num-threads <int>\n"
+		 "        Number of threads (default=" XSTR(DEFAULT_NB_THREADS) ")\n"
 		 "  -i, --initial <int>\n"
 		 "        Initial list lise (default=" XSTR(DEFAULT_SIZE) ")\n"
 		 "  -d, --duration <double>\n"
