@@ -1,7 +1,7 @@
 #!/bin/bash
 
 git stash push &> /dev/null;
-git co glstm &> /dev/null;
+git checkout glstm &> /dev/null;
 
 make clean &> /dev/null;
 make &> /dev/null;
@@ -9,7 +9,7 @@ make &> /dev/null;
 mv bank bank_glstm &> /dev/null;
 mv ll ll_glstm &> /dev/null;
 
-git co master &> /dev/null;
+git checkout master &> /dev/null;
 git stash pop &> /dev/null;
 
 echo "!! created bank_glstm and ll_glstm executables."
