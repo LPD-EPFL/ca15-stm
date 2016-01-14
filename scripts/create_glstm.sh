@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git stash push &> /dev/null;
+git stash &> /dev/null;
 git checkout glstm &> /dev/null;
 
 make clean &> /dev/null;
