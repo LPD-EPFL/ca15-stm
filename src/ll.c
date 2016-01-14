@@ -152,7 +152,7 @@ ll_search(ll_t* list, size_t key)
 }
 
 size_t 
-ll_size() 
+ll_size(ll_t* list) 
 {
   size_t size = 0;
   TX_START();
